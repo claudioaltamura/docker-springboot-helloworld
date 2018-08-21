@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/claudioaltamura/docker-springboot-helloworld.svg?branch=master)](https://travis-ci.org/claudioaltamura/docker-springboot-helloworld)
+
+
 # docker-springboot-helloworld
 spring boot example with docker
 
@@ -5,27 +8,50 @@ spring boot example with docker
 ## Building the example 
 
 with tests
-./gradlew clean build
+
+	./gradlew clean build
 
 or without tests
 
-./gradle clean bootJar
+	./gradle clean bootJar
 
 ## Running the example
 
-java -jar build/libs/docker-springboot-helloworld-0.1.0.jar
+Run
 
+	java -jar build/libs/docker-springboot-helloworld-0.1.0.jar
 
-curl http://localhost:8080/helloworld
+Check
 
-
-curl http://localhost:8080/helloworld/angelo
+	curl http://localhost:8080/helloworld
+	curl http://localhost:8080/helloworld/angelo
 
 ## Running the example in a docker container
 
-docker image build -t docker-springboot-helloworld:latest .
+Build
 
-docker run -d -p 8080:8080 docker-springboot-helloworld:latest
+	docker image build -t docker-springboot-helloworld:latest .
 
-curl http://localhost:8080/helloworld 
+Run
 
+	docker run -d -p 8080:8080 docker-springboot-helloworld:latest
+
+check
+
+	curl http://localhost:8080/helloworld 
+
+
+## Actuator
+
+health check
+
+	curl http://localhost:8080//actuator/health
+
+info
+
+	curl http://localhost:8080/actuator/info
+
+
+metrics
+
+	curl http://localhost:8080/actuator/metrics
