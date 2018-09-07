@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class HelloWorldController {
 
 	@GetMapping(value = {"/helloworld", "/helloworld/{name}"})
-	public String byYear(@PathVariable final Optional<String> name) {
+	public String greet(@PathVariable final Optional<String> name) {
 		if(name.isPresent())
 			return "Hello " + name.get() + "!";
 		else {
