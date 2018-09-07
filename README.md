@@ -30,15 +30,27 @@ Check
 
 Build
 
-	docker image build -t docker-springboot-helloworld:latest .
+	docker image build -t helloworld:latest .
 
 Run
 
-	docker run -d -p 8080:8080 docker-springboot-helloworld:latest
+	docker run -d -p 8080:8080 --name helloworld1 helloworld:latest
 
-check
+## Debugging the example in a docker container
 
-	curl http://localhost:8080/helloworld 
+Debug
+
+	docker run -d -p 8080:8080 -p 5005:5005 --name helloworld1 helloworld:latest
+
+inspect
+	
+	docker inspect helloworld1
+
+attach
+
+	docker exec -it helloworld1 sh
+
+	netstat -anpt
 
 
 ## Actuator
