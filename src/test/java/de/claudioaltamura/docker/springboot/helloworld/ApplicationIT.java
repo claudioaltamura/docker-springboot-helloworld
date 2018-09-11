@@ -1,10 +1,8 @@
 package de.claudioaltamura.docker.springboot.helloworld;
 
-import static org.junit.Assert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
-
+import static org.junit.Assert.assertThat;
 import java.net.URL;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -19,22 +17,23 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class ApplicationIT {
 
-	@LocalServerPort
-	private int port;
+  @LocalServerPort
+  private int port;
 
-	private URL base;
+  private URL base;
 
-	@Autowired
-	private TestRestTemplate template;
+  @Autowired
+  private TestRestTemplate template;
 
-	@Before
-	public void setUp() throws Exception {
-		this.base = new URL("http://localhost:" + port + "/");
-	}
+  @Before
+  public void setUp() throws Exception {
+    this.base = new URL("http://localhost:" + port + "/");
+  }
 
-	@Test
-	public void gethelloWorld() throws Exception {
-		ResponseEntity<String> response = template.getForEntity(base.toString()+"/helloworld", String.class);
-		assertThat(response.getBody(), equalTo("Hello World!"));
-	}
+  @Test
+  public void gethelloWorld() throws Exception {
+    ResponseEntity<String> response =
+        template.getForEntity(base.toString() + "/helloworld", String.class);
+    assertThat(response.getBody(), equalTo("Hello World!"));
+  }
 }
