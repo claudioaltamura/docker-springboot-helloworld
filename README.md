@@ -56,15 +56,23 @@ attach
 
 ## Actuator
 
-health check
-
-	curl http://localhost:8080//actuator/health
-
 info
 
 	curl http://localhost:8080/actuator/info
 
+health check
+
+	curl http://localhost:8080/actuator/health
+
+loggers
+
+	curl http://localhost:8080/actuator/loggers
+
+httptrace
+
+	curl http://localhost:8080/actuator/httptrace
 
 metrics
 
 	curl http://localhost:8080/actuator/metrics
+
